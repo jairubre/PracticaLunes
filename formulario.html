@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de login</title>
+</head>
+
+<body>
+
+    <!--LO que hace este linea de codigo poner la ruta donde se encuentra nuestro php que usa la varable $server para guardar la ruta que es lo mismo que action="/login.php" method="POST"-->
+    <form action="login.php" method="POST">
+        <label for="usuario">Usuario</label>
+        <input id="usuario" name="usuario" type="text">
+        <label for="clave">Clave</label>
+        <input id="clave" name="clave" type="password">
+        <input type="submit" value="Entrar">
+    </form>
+
+
+   
+</body>
+
+</html>

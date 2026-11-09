@@ -15,9 +15,7 @@ if (isset($_POST["color"])) {
     }
 }
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +27,6 @@ if (isset($_POST["color"])) {
 </head>
 
 <body>
-
 
     <form method="post" action="">
         <p>Colores</p>
@@ -50,9 +47,7 @@ if (isset($_POST["color"])) {
         <br>
         <input type="submit" value="Guardar">
 
-
     </form>
-
 </body>
 
 </html>

@@ -1,11 +1,13 @@
 <?php
-if (isset($_POST["tipo"])) {
-    $cookie_name = "Titular";
-    $cookie_valor = $_POST["tipo"];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    setcookie($cookie_name, $cookie_valor, time() + (86400 * 30));
-    echo"<h1>$cookie_valor</h1>";
-    
+    if (isset($_POST["tipo"])) {
+        $cookie_name = "Titular";
+        $cookie_valor = $_POST["tipo"];
+
+        setcookie($cookie_name, $cookie_valor, time() + (86400 * 30));
+        echo "<h1>$cookie_valor</h1>";
+    }
 }
 
 

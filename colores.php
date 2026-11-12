@@ -1,20 +1,22 @@
 <?php
-if (isset($_POST["color"])) {
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cookie_name = "Colores";
-    $cookie_color = $_POST["color"];
-    setcookie($cookie_name, $cookie_color, time() + (86400 * 30));
-    if ($cookie_color === "azul") {
-        header("Location: Paginacolor.php");
-        exit;
-    }
-    if ($cookie_color === "rojo") {
-        header("Location: Paginacolor.php");
-    }
-    if ($cookie_color === "amarillo") {
-        header("Location: Paginacolor.php");
+   
+
+
+    // 1. Comprobar si existe la cookie
+    if (!isset($_COOKIE[$cookie_name])) {
+        setcookie($cookie_name, $_POST["color"] ??= "", time() + (86400 * 30));
+    } else {
+        $color=$_COOKIE[$cookie_name];
+        echo"Este es el color ".$color;
+        if(!empty($color)){
+               echo "<body style='background-color: " . $color . ";'>";
+        }
+
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,20 +33,9 @@ if (isset($_POST["color"])) {
     <form method="post" action="">
         <p>Colores</p>
         <label>
-            <input type="radio" name="color" value="rojo" <?php $tipo = "rojo" ? "checked" : "" ?>>
+            <input type="color" name="color" value="#ff0000">
             rojo
         </label>
-        <br>
-        <label>
-            <input type="radio" name="color" value="azul" <?php $tipo = "azul" ? "checked" : "" ?>>
-            azul
-        </label>
-        <br>
-        <label>
-            <input type="radio" name="color" value="amarillo" <?php $tipo = "amarillo" ? "checked" : "" ?>>
-            Amarillo
-        </label>
-        <br>
         <input type="submit" value="Guardar">
 
     </form>
